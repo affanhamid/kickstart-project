@@ -83,17 +83,6 @@ export default function Home() {
         <StarsBackground />
       </motion.div>
 
-      <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 px-[290px] flex justify-between">
-        <VerticalLine />
-        <VerticalLine />
-        <VerticalLine />
-        <VerticalLine />
-        <VerticalLine />
-      </div>
-      <div className="absolute top-0 left-0 bottom-0 right-0 pt-[215px] pb-[285px] flex flex-col items-center justify-between">
-        <HorizontalLine />
-        <HorizontalLine />
-      </div>
       <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 flex justify-center items-center">
         <motion.div
           initial={{ scale: 0, translateY: -40 }}

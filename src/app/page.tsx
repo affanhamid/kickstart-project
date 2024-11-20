@@ -80,9 +80,19 @@ export default function Home() {
           alt="clouds"
         />
         <ShootingStars />
-        <StarsBackground />
       </motion.div>
 
+      <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 px-[250px] flex justify-between">
+        <VerticalLine />
+        <VerticalLine />
+        <VerticalLine />
+        <VerticalLine />
+        <VerticalLine />
+      </div>
+      <div className="absolute top-0 left-0 bottom-0 right-0 pt-[215px] pb-[285px] flex flex-col items-center justify-between">
+        <HorizontalLine />
+        <HorizontalLine />
+      </div>
       <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 flex justify-center items-center">
         <motion.div
           initial={{ scale: 0, translateY: -40 }}
@@ -103,7 +113,16 @@ export default function Home() {
         style={{
           backgroundImage:
             "radial-gradient(50% 50%, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 100%)",
-          opacity: "50%",
+          opacity: "5%",
+        }}
+      ></div>
+      <StarsBackground />
+      <div
+        className="absolute top-0 left-0 bottom-0 right-0"
+        style={{
+          backgroundImage:
+            "radial-gradient(50% 50%, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 100%)",
+          opacity: "60%",
         }}
       ></div>
 

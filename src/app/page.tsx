@@ -1,12 +1,15 @@
 "use client";
 import Image from "next/image";
-import backgroundImage from "../../public/background 2.jpeg";
+import backgroundImage from "../../public/background 8.jpg";
 import { AiOutlineHome, AiOutlineInfoCircle } from "react-icons/ai";
 import { GoBriefcase } from "react-icons/go";
 import { LuGamepad2 } from "react-icons/lu";
 import { Spline_Sans_Mono } from "next/font/google";
 
 import { motion } from "framer-motion";
+import { Stars } from "@/components/components/BackgroundAnimation";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { StarsBackground } from "@/components/ui/stars-background";
 
 const easeFunction = "circInOut";
 const bezierEase = [0.22, 1, 0.36, 1];
@@ -45,7 +48,7 @@ const HorizontalLine = () => {
           ease: bezierEase,
         },
       }}
-      className="bg-white/20 w-[460px] h-[1.5px]"
+      className="bg-white/20 w-[550px] h-[1.5px]"
     ></motion.div>
   );
 };
@@ -76,6 +79,9 @@ export default function Home() {
           className="w-full h-full object-cover"
           alt="clouds"
         />
+        <Stars />
+        <ShootingStars />
+        <StarsBackground />
       </motion.div>
 
       <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 px-[290px] flex justify-between">
@@ -101,7 +107,7 @@ export default function Home() {
               ease: easeFunction,
             },
           }}
-          className="w-[560px] aspect-square border border-white/40 rounded-full"
+          className="w-[600px] aspect-square border border-white/40 rounded-full"
         />
       </div>
       <div
@@ -109,7 +115,7 @@ export default function Home() {
         style={{
           backgroundImage:
             "radial-gradient(50% 50%, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 100%)",
-          opacity: "20%",
+          opacity: "70%",
         }}
       ></div>
 

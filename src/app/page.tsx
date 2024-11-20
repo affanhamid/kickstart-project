@@ -70,15 +70,8 @@ export default function Home() {
           scale: 1,
           transition: { duration: slowDuration, ease: easeFunction },
         }}
-        className="absolute top-0 left-0 bottom-0 right-0"
+        className="absolute bg-black top-0 left-0 bottom-0 right-0"
       >
-        <Image
-          src={backgroundImage}
-          width={1024}
-          height={720}
-          className="w-full h-full object-cover"
-          alt="clouds"
-        />
         <Stars />
         <ShootingStars />
         <StarsBackground />

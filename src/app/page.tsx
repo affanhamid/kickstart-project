@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import backgroundImage from "../../public/background.jpeg";
+import backgroundImage from "../../public/background 2.jpeg";
 import { AiOutlineHome, AiOutlineInfoCircle } from "react-icons/ai";
 import { GoBriefcase } from "react-icons/go";
 import { LuGamepad2 } from "react-icons/lu";

@@ -109,7 +109,7 @@ export default function Home() {
         style={{
           backgroundImage:
             "radial-gradient(50% 50%, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 100%)",
-          opacity: "75%",
+          opacity: "20%",
         }}
       ></div>
 

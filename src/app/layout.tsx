@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${leagueSpartan.className} antialiased w-screen h-screen overflow-hidden`}
+        className={`${leagueSpartan.className} antialiased w-screen h-screen overflow-hidden cursor-none`}
       >
         {children}
       </body>

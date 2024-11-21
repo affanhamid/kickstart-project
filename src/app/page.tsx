@@ -1,15 +1,13 @@
 "use client";
 import Image from "next/image";
 import backgroundImage from "../../public/background 8.jpg";
-import { AiOutlineHome, AiOutlineInfoCircle } from "react-icons/ai";
-import { GoBriefcase } from "react-icons/go";
-import { LuGamepad2 } from "react-icons/lu";
+import Navbar from "@/components/components/Navbar";
 import { Spline_Sans_Mono } from "next/font/google";
-
+import CustomCursor from "@/components/components/CustomCursor";
 import { motion } from "framer-motion";
-import { Stars } from "@/components/components/BackgroundAnimation";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
+import Marquee from "@/components/components/Marquee";
 
 const easeFunction = "circInOut";
 const bezierEase = [0.22, 1, 0.36, 1];
@@ -22,7 +20,7 @@ const spline = Spline_Sans_Mono({
   style: ["italic"],
 });
 
-const VerticalLine = () => {
+const VerticalLine = ({ direction }: { direction: boolean }) => {
   return (
     <motion.div
       initial={{ scaleY: 0 }}
@@ -30,8 +28,8 @@ const VerticalLine = () => {
         scaleY: 1,
         transition: { duration: slowDuration, ease: easeFunction },
       }}
-      style={{ originY: 0 }}
-      className="bg-white/20 h-screen w-[1.5px]"
+      style={{ originY: direction ? 0 : 1 }}
+      className="bg-white/10 h-screen w-[1.5px]"
     ></motion.div>
   );
 };
@@ -48,22 +46,85 @@ const HorizontalLine = () => {
           ease: bezierEase,
         },
       }}
-      className="bg-white/20 w-[550px] h-[1.5px]"
+      className="bg-white/10 w-[600px] h-[1.5px]"
     ></motion.div>
   );
 };
 
-const NavIcon = ({ icon }: { icon: React.ReactNode }) => {
+const AnimatedText = ({ text, variants }: { text: string; variants: any }) => {
   return (
-    <div className="bg-[#191919] px-[10px] py-[9px] rounded-[10px] text-white/50 border-y-[0.075rem] border-[#404040b1]">
-      {icon}
-    </div>
+    <motion.span
+      initial="initial"
+      animate="animate"
+      className="inline-block overflow-hidden"
+    >
+      {text.split("").map((letter, i) => (
+        <motion.span
+          key={`${letter}-${i}`}
+          variants={variants}
+          custom={i}
+          className="inline-block"
+        >
+          {letter}
+        </motion.span>
+      ))}
+    </motion.span>
   );
 };
 
 export default function Home() {
+  const text1 = "KICKSTART";
+  const text2 = "EDUCATION";
+  const variants1 = {
+    initial: (i: number) => ({
+      y: 100 + 10 * i,
+      rotate: 40,
+    }),
+    animate: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      rotate: 0,
+      transition: { delay: 0.05 * i, duration: 1, ease: easeFunction },
+    }),
+  };
+  const variants2 = {
+    initial: (i: number) => ({
+      y: 100 + 10 * (9 - i),
+      rotate: -40,
+    }),
+    animate: (i: number) => ({
+      y: 0,
+      opacity: 1,
+      rotate: 0,
+      transition: { delay: 0.05 * (9 - i), duration: 1, ease: easeFunction },
+    }),
+  };
+
+  const schools = [
+    "Trinity",
+    "Whitgift",
+    "Hampton",
+    "Royal Russell",
+    "Kingston Grammar",
+    "Harrow",
+    "Tiffin",
+    "Claremont",
+    "City of London Freemen",
+    "Epsom College",
+    "Eltham College",
+    "Wilsons Grammar",
+    "Wallington Grammar",
+    "St Johns Leatherhead",
+    "Fulham Boys",
+    "Croydon High",
+    "Charterhouse",
+    "Cranleigh",
+    "RGS Guildford",
+    "St Dunstans",
+  ];
   return (
     <main className="w-screen h-screen overflow-hidden">
+      <CustomCursor />
       <motion.div
         initial={{ scale: 1.2 }}
         animate={{
@@ -82,83 +143,102 @@ export default function Home() {
         <ShootingStars />
       </motion.div>
 
-      <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 px-[250px] flex justify-between">
-        <VerticalLine />
-        <VerticalLine />
-        <VerticalLine />
-        <VerticalLine />
-        <VerticalLine />
+      <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 px-[250px] flex justify-between pointer-events-none">
+        <VerticalLine direction={true} />
+        <VerticalLine direction={false} />
+        <VerticalLine direction={true} />
+        <VerticalLine direction={false} />
+        <VerticalLine direction={true} />
       </div>
-      <div className="absolute top-0 left-0 bottom-0 right-0 pt-[215px] pb-[285px] flex flex-col items-center justify-between">
+      <div className="absolute top-0 left-0 bottom-0 right-0 pt-[215px] pb-[285px] flex flex-col items-center justify-between pointer-events-none">
         <HorizontalLine />
         <HorizontalLine />
       </div>
-      <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 flex justify-center items-center">
+      <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 flex justify-center items-center pointer-events-none">
         <motion.div
           initial={{ scale: 0, translateY: -40 }}
           animate={{
             scale: 1,
             translateY: -40,
             transition: {
-              delay: 0.8,
+              delay: 0.5,
               duration: fastDuration,
               ease: easeFunction,
             },
           }}
-          className="w-[600px] aspect-square border border-white/40 rounded-full"
+          className="w-[600px] aspect-square border border-white/10 rounded-full"
         />
       </div>
-      <div
-        className="absolute top-0 left-0 bottom-0 right-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(50% 50%, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 100%)",
-          opacity: "5%",
-        }}
-      ></div>
-      <StarsBackground />
-      <div
-        className="absolute top-0 left-0 bottom-0 right-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(50% 50%, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 100%)",
-          opacity: "60%",
-        }}
-      ></div>
-
-      <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 flex justify-center items-center">
-        <div className="flex flex-col text-[#9F9FAD] gap-1 items-center pt-10">
-          <h1 className="text-8xl">
-            <span className="tracking-[5px]">KICKSTART</span> <br />
-            <span>EDUCATION</span>
-          </h1>
-          <p
-            className={`text-accent text-xl font-light pb-32 text-center max-w-[45ch] ${spline.className}`}
-          >
-            Educating the next generation of stars
-          </p>
-        </div>
-      </div>
-
-      <motion.nav
-        initial={{ translateY: 100 }}
+      <motion.div
+        initial={{ opacity: 0 }}
         animate={{
-          translateY: 0,
+          opacity: 1,
           transition: {
-            delay: 0.8,
+            duration: 4,
+            ease: "linear",
+          },
+        }}
+      >
+        <StarsBackground />
+      </motion.div>
+      <motion.div
+        className="absolute top-0 left-0 bottom-0 right-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(50% 50%, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 100%)",
+        }}
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 0.3,
+          transition: {
             duration: fastDuration,
             ease: easeFunction,
           },
         }}
-        className="absolute bottom-0 w-screen pb-[20px] flex justify-center"
-      >
-        <div className="mx-3 flex h-fit w-fit min-w-0 items-end gap-[10px] rounded-[20px] border-y-[0.075rem] border-[#404040b1] bg-[#00000051] p-[10px] backdrop-blur-[15px]">
-          <NavIcon icon={<AiOutlineHome className="w-6 h-6" />} />
-          <NavIcon icon={<AiOutlineInfoCircle className="w-6 h-6" />} />
-          <NavIcon icon={<GoBriefcase className="w-6 h-6" />} />
-          <NavIcon icon={<LuGamepad2 className="w-6 h-6" />} />
+      ></motion.div>
+
+      <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 flex justify-center items-center pointer-events-none">
+        <div className="flex flex-col text-[#9F9FAD] gap-1 items-center pt-10">
+          <h1 className="text-8xl flex flex-col">
+            <span className="tracking-[5px]">
+              <AnimatedText text={text1} variants={variants1} />
+            </span>
+            <AnimatedText text={text2} variants={variants2} />
+          </h1>
+          <div className="w-[90%] mx-auto overflow-hidden">
+            <motion.div
+              className="w-full"
+              initial={{ translateX: 520 }}
+              animate={{
+                translateX: 0,
+                transition: {
+                  delay: 1,
+                  duration: 4,
+                  ease: "linear",
+                },
+              }}
+            >
+              <Marquee items={schools} delay={5} />
+            </motion.div>
+          </div>
+          <motion.p
+            initial={{ opacity: 0, translateY: 20 }}
+            animate={{
+              opacity: 1,
+              translateY: 0,
+              transition: {
+                delay: 1,
+                duration: 0.2,
+                ease: "easeInOut",
+              },
+            }}
+            className={`text-accent text-xl font-light pb-32 text-center max-w-[45ch] ${spline.className}`}
+          >
+            Educating the next generation of stars
+          </motion.p>
         </div>
-      </motion.nav>
+      </div>
+      <Navbar />
     </main>
   );
 }

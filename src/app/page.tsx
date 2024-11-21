@@ -189,7 +189,7 @@ export default function Home() {
         }}
         initial={{ opacity: 0 }}
         animate={{
-          opacity: 0.3,
+          opacity: 0.4,
           transition: {
             duration: fastDuration,
             ease: easeFunction,

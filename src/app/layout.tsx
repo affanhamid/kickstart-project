@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={`${leagueSpartan.className} antialiased w-screen h-screen overflow-hidden cursor-none`}
       >

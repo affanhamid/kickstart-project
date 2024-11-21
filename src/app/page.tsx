@@ -138,32 +138,32 @@ export default function Home() {
           <ShootingStars />
         </motion.div>
 
-        <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 px-[250px] flex justify-between pointer-events-none">
-          <VerticalLine direction={true} />
-          <VerticalLine direction={false} />
-          <VerticalLine direction={true} />
-          <VerticalLine direction={false} />
-          <VerticalLine direction={true} />
-        </div>
-        <div className="absolute top-0 left-0 bottom-0 right-0 pt-[215px] pb-[285px] flex flex-col items-center justify-between pointer-events-none">
-          <HorizontalLine />
-          <HorizontalLine />
-        </div>
-        <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 flex justify-center items-center pointer-events-none">
-          <motion.div
-            initial={{ scale: 0, translateY: -40 }}
-            animate={{
-              scale: 1,
-              translateY: -40,
-              transition: {
-                delay: 0.5,
-                duration: fastDuration,
-                ease: easeFunction,
-              },
-            }}
-            className="w-[600px] aspect-square border border-white/10 rounded-full"
-          />
-        </div>
+        {/* <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 px-[250px] flex justify-between pointer-events-none"> */}
+        {/*   <VerticalLine direction={true} /> */}
+        {/*   <VerticalLine direction={false} /> */}
+        {/*   <VerticalLine direction={true} /> */}
+        {/*   <VerticalLine direction={false} /> */}
+        {/*   <VerticalLine direction={true} /> */}
+        {/* </div> */}
+        {/* <div className="absolute top-0 left-0 bottom-0 right-0 pt-[215px] pb-[285px] flex flex-col items-center justify-between pointer-events-none"> */}
+        {/*   <HorizontalLine /> */}
+        {/*   <HorizontalLine /> */}
+        {/* </div> */}
+        {/* <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 flex justify-center items-center pointer-events-none"> */}
+        {/*   <motion.div */}
+        {/*     initial={{ scale: 0, translateY: -40 }} */}
+        {/*     animate={{ */}
+        {/*       scale: 1, */}
+        {/*       translateY: -40, */}
+        {/*       transition: { */}
+        {/*         delay: 0.5, */}
+        {/*         duration: fastDuration, */}
+        {/*         ease: easeFunction, */}
+        {/*       }, */}
+        {/*     }} */}
+        {/*     className="w-[600px] aspect-square border border-white/10 rounded-full" */}
+        {/*   /> */}
+        {/* </div> */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{

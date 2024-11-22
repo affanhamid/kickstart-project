@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { League_Spartan } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
-
-const leagueSpartan = League_Spartan({ weight: "700", subsets: ["latin"] });
+import CustomCursor from "@/components/components/CustomCursor";
+import { Navbar } from "@/components";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,9 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${leagueSpartan.className} antialiased w-screen h-screen overflow-hidden cursor-none`}
+        className={`${GeistSans.className} antialiased w-screen h-screen overflow-hidden cursor-none`}
       >
-        {children}
+        <CustomCursor />
+        <main className="bg-[#18181b] w-screen h-screen">{children}</main>
+
+        <Navbar />
       </body>
     </html>
   );

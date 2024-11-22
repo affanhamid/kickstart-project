@@ -1,106 +1,25 @@
 "use client";
-import Image from "next/image";
-import backgroundImage from "../../public/background 8.jpg";
-import Navbar from "@/components/components/Navbar";
-import { Spline_Sans_Mono } from "next/font/google";
-import CustomCursor from "@/components/components/CustomCursor";
+import {
+  Marquee,
+  StarsBackground,
+  ShootingStars,
+  AuroraBackground,
+  Navbar,
+  Logo,
+} from "@/components";
 import { motion } from "framer-motion";
-import { ShootingStars } from "@/components/ui/shooting-stars";
-import { StarsBackground } from "@/components/ui/stars-background";
-import Marquee from "@/components/components/Marquee";
-import { AuroraBackground } from "@/components/ui/aurora-background";
-
-const easeFunction = "circInOut";
-const bezierEase = [0.22, 1, 0.36, 1];
-const fastDuration = 0.8;
-const slowDuration = 1.2;
-
-const spline = Spline_Sans_Mono({
-  weight: "400",
-  subsets: ["latin"],
-  style: ["italic"],
-});
-
-const VerticalLine = ({ direction }: { direction: boolean }) => {
-  return (
-    <motion.div
-      initial={{ scaleY: 0 }}
-      animate={{
-        scaleY: 1,
-        transition: { duration: slowDuration, ease: easeFunction },
-      }}
-      style={{ originY: direction ? 0 : 1 }}
-      className="bg-white/10 h-screen w-[1.5px]"
-    ></motion.div>
-  );
-};
-
-const HorizontalLine = () => {
-  return (
-    <motion.div
-      initial={{ scaleX: 0 }}
-      animate={{
-        scaleX: 1,
-        transition: {
-          delay: 0.8,
-          duration: fastDuration,
-          ease: bezierEase,
-        },
-      }}
-      className="bg-white/10 w-[600px] h-[1.5px]"
-    ></motion.div>
-  );
-};
-
-const AnimatedText = ({ text, variants }: { text: string; variants: any }) => {
-  return (
-    <motion.span
-      initial="initial"
-      animate="animate"
-      className="inline-block overflow-hidden"
-    >
-      {text.split("").map((letter, i) => (
-        <motion.span
-          key={`${letter}-${i}`}
-          variants={variants}
-          custom={i}
-          className="inline-block"
-        >
-          {letter}
-        </motion.span>
-      ))}
-    </motion.span>
-  );
-};
+import Typewriter from "typewriter-effect";
+import {
+  footerTypewriterVariants,
+  headerLine1Variants,
+  headerLine2Variants,
+  logoVariants,
+  navbarVariants,
+  schoolsVariants,
+  backgroundVariants,
+} from "@/utils/animations";
 
 export default function Home() {
-  const text1 = "KICKSTART";
-  const text2 = "EDUCATION";
-  const variants1 = {
-    initial: (i: number) => ({
-      y: 100 + 10 * i,
-      rotate: 40,
-    }),
-    animate: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      rotate: 0,
-      transition: { delay: 0.05 * i, duration: 1, ease: easeFunction },
-    }),
-  };
-  const variants2 = {
-    initial: (i: number) => ({
-      y: 100 + 10 * (9 - i),
-      rotate: -40,
-    }),
-    animate: (i: number) => ({
-      y: 0,
-      opacity: 1,
-      rotate: 0,
-      transition: { delay: 0.05 * (9 - i), duration: 1, ease: easeFunction },
-    }),
-  };
-
   const schools = [
     "Trinity",
     "Whitgift",
@@ -123,103 +42,97 @@ export default function Home() {
     "RGS Guildford",
     "St Dunstans",
   ];
+
   return (
-    <main className="w-screen h-screen overflow-hidden">
+    <motion.div
+      className="relative w-full h-full"
+      variants={backgroundVariants}
+      initial="initial"
+      animate="animate"
+    >
       <AuroraBackground>
-        <CustomCursor />
+        <ShootingStars />
+        <StarsBackground />
+
         <motion.div
-          initial={{ scale: 1.2 }}
-          animate={{
-            scale: 1,
-            transition: { duration: slowDuration, ease: easeFunction },
-          }}
-          className="absolute top-0 left-0 bottom-0 right-0"
+          className="absolute top-7 left-8 text-xl font-bold text-white"
+          variants={logoVariants}
+          initial="initial"
+          animate="animate"
         >
-          <ShootingStars />
+          <Logo />
         </motion.div>
 
-        {/* <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 px-[250px] flex justify-between pointer-events-none"> */}
-        {/*   <VerticalLine direction={true} /> */}
-        {/*   <VerticalLine direction={false} /> */}
-        {/*   <VerticalLine direction={true} /> */}
-        {/*   <VerticalLine direction={false} /> */}
-        {/*   <VerticalLine direction={true} /> */}
-        {/* </div> */}
-        {/* <div className="absolute top-0 left-0 bottom-0 right-0 pt-[215px] pb-[285px] flex flex-col items-center justify-between pointer-events-none"> */}
-        {/*   <HorizontalLine /> */}
-        {/*   <HorizontalLine /> */}
-        {/* </div> */}
-        {/* <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 flex justify-center items-center pointer-events-none"> */}
-        {/*   <motion.div */}
-        {/*     initial={{ scale: 0, translateY: -40 }} */}
-        {/*     animate={{ */}
-        {/*       scale: 1, */}
-        {/*       translateY: -40, */}
-        {/*       transition: { */}
-        {/*         delay: 0.5, */}
-        {/*         duration: fastDuration, */}
-        {/*         ease: easeFunction, */}
-        {/*       }, */}
-        {/*     }} */}
-        {/*     className="w-[600px] aspect-square border border-white/10 rounded-full" */}
-        {/*   /> */}
-        {/* </div> */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: {
-              duration: 4,
-              ease: "linear",
-            },
-          }}
-        >
-          <StarsBackground />
-        </motion.div>
-
-        <div className="absolute bg-transparent top-0 left-0 bottom-0 right-0 flex justify-center items-center pointer-events-none">
-          <div className="flex flex-col text-[#9F9FAD] gap-1 items-center pt-10">
-            <h1 className="text-8xl flex flex-col">
-              <span className="tracking-[5px]">
-                <AnimatedText text={text1} variants={variants1} />
+        <section className="flex flex-col text-white items-center pt-10">
+          <header className="text-center">
+            <h1 className="text-7xl font-bold tracking-[0.5px] flex flex-col">
+              <span className="flex justify-center overflow-hidden">
+                {"Educating the Next".split("").map((letter, index) => (
+                  <motion.span
+                    key={`line1-${index}`}
+                    className="inline-block"
+                    variants={headerLine1Variants}
+                    custom={index}
+                    initial="initial"
+                    animate="animate"
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </motion.span>
+                ))}
               </span>
-              <AnimatedText text={text2} variants={variants2} />
+
+              {/* Second Line */}
+              <span className="flex justify-center overflow-hidden">
+                {"Generation of Stars".split("").map((letter, index) => (
+                  <motion.span
+                    key={`line2-${index}`}
+                    className="inline-block"
+                    variants={headerLine2Variants}
+                    custom={index}
+                    initial="initial"
+                    animate="animate"
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </motion.span>
+                ))}
+              </span>
             </h1>
-            <div className="w-[90%] mx-auto overflow-hidden">
-              <motion.div
-                className="w-full"
-                initial={{ translateX: 520 }}
-                animate={{
-                  translateX: 0,
-                  transition: {
-                    delay: 1,
-                    duration: 4,
-                    ease: "linear",
-                  },
-                }}
-              >
-                <Marquee items={schools} delay={5} />
-              </motion.div>
-            </div>
-            <motion.p
-              initial={{ opacity: 0, translateY: 20 }}
-              animate={{
-                opacity: 1,
-                translateY: 0,
-                transition: {
-                  delay: 1,
-                  duration: 0.2,
-                  ease: "easeInOut",
-                },
-              }}
-              className={`text-accent text-xl font-light pb-32 text-center max-w-[45ch] ${spline.className}`}
-            >
-              Educating the next generation of stars
-            </motion.p>
-          </div>
-        </div>
-        <Navbar />
+          </header>
+
+          <motion.div
+            className="text-center w-[70%] text-xl"
+            variants={schoolsVariants}
+            initial="initial"
+            animate="animate"
+          >
+            <p className="text-lg pt-6 mb-2">Trusted by 200+ parents from:</p>
+            <Marquee items={schools} />
+          </motion.div>
+        </section>
+
+        <motion.footer
+          className="text-xl text-gray-200 font-light pt-6 italic flex gap-1 justify-start w-[550px]"
+          variants={footerTypewriterVariants}
+          initial="initial"
+          animate="animate"
+        >
+          <span>Empowering our students with </span>
+          <Typewriter
+            options={{
+              strings: [
+                "10 and 11+ Exam Preparation",
+                "Interview Preparation",
+                "Math Study Groups",
+                "English Study Groups",
+              ],
+              autoStart: true,
+              loop: true,
+              delay: 75, // Speed of typing
+              deleteSpeed: 50, // Speed of deleting text
+            }}
+          />
+        </motion.footer>
       </AuroraBackground>
-    </main>
+    </motion.div>
   );
 }

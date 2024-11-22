@@ -7,3 +7,4 @@ export * from "./components/Navbar";
 export * from "./components/Logo";
 export * from "./ui/background-beams";
 export * from "./components/Form";
+export * from "./components/ContactUs";

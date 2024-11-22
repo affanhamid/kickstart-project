@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import CustomCursor from "@/components/components/CustomCursor";
-import { Navbar } from "@/components";
+import { Navbar, ContactUs } from "@/components";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,8 +21,8 @@ export default function RootLayout({
       >
         <CustomCursor />
         <main className="bg-[#18181b] w-screen h-screen">{children}</main>
-
         <Navbar />
+        <ContactUs />
       </body>
     </html>
   );

@@ -10,3 +10,5 @@ export * from "./components/Form";
 export * from "./components/ContactUs";
 export * from "./ui/hero-highlight";
 export * from "./ui/background-boxes";
+export * from "./components/Testimonials";
+export * from "./components/StickyReveal";

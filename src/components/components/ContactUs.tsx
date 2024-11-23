@@ -15,7 +15,7 @@ export const ContactUs = () => {
   // Define custom animation variants for the popover
   return (
     <motion.div
-      className="fixed bottom-4 right-4 flex flex-col items-end"
+      className="fixed z-30 bottom-4 right-4 flex flex-col items-end"
       initial="hidden"
       animate="visible"
       variants={contactUsVariants}

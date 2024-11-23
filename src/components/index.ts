@@ -8,3 +8,5 @@ export * from "./components/Logo";
 export * from "./ui/background-beams";
 export * from "./components/Form";
 export * from "./components/ContactUs";
+export * from "./ui/hero-highlight";
+export * from "./ui/background-boxes";

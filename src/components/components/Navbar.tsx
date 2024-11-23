@@ -40,7 +40,7 @@ export const Navbar = () => {
 
   return (
     <motion.nav
-      className="absolute bottom-0 w-screen pb-[20px] flex justify-center"
+      className="absolute z-30 bottom-0 w-screen pb-[20px] flex justify-center"
       variants={navbarVariants}
       initial="initial"
       animate="animate"

@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 export const StickyScroll = ({
   content,
   contentClassName,
+  canScroll,
 }: {
   content: {
     title: string;
@@ -14,6 +15,7 @@ export const StickyScroll = ({
     content?: React.ReactNode | any;
   }[];
   contentClassName?: string;
+  canScroll: boolean;
 }) => {
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef<any>(null);
@@ -54,7 +56,8 @@ export const StickyScroll = ({
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="h-[30rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10"
+      className="h-[25rem] flex justify-center relative space-x-10 rounded-md p-10"
+      style={{ overflowY: canScroll ? "auto" : "hidden" }}
       ref={ref}
     >
       <div className="div relative flex items-start px-4">

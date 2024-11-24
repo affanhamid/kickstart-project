@@ -1,9 +1,35 @@
 "use client";
+
 import { HeroHighlight, Testimonials, StickyReveal } from "@/components";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const page = () => {
+const Page = () => {
+  const [canScroll, setCanScroll] = useState(false);
+
+  useEffect(() => {
+    const scrollableElement = document.querySelector(".overflow-y-scroll");
+    const handleScroll = (e) => {
+      const scrollPosition = scrollableElement.scrollTop;
+      const scrollThresholdTop = 300;
+      const scrollThresholdBottom = 400;
+      if (
+        scrollPosition >= scrollThresholdTop &&
+        scrollPosition <= scrollThresholdBottom
+      ) {
+        setCanScroll(true);
+      } else {
+        setCanScroll(false);
+      }
+    };
+
+    scrollableElement.addEventListener("scroll", handleScroll);
+
+    return () => {
+      scrollableElement.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <HeroHighlight className="text-white h-screen overflow-y-scroll w-full">
       <div className="flex flex-col h-[30vh] items-center justify-center text-center py-20 px-6">
@@ -13,22 +39,20 @@ const page = () => {
       </div>
 
       <div className="flex flex-col md:flex-row gap-8 p-8 text-white">
-        {/* Metric Section */}
         <div className="flex w-1/2 flex-col items-center justify-center text-center md:text-left">
-          <p className="text-6xl font-bold text-blue-500 mb-4">65%</p>
+          <p className="text-6xl font-bold text-red-500 mb-4">65%</p>
           <p className="text-lg">
             Only 65% of applicants passed the 11+ interview stage in 2023.
           </p>
         </div>
 
-        {/* Benefits Section */}
         <div className="w-1/2 space-y-6">
           <h2 className="text-4xl font-bold mb-4">Education Redefined</h2>
           <p className="text-gray-300 mb-6">
             Discover how we empower students with a personalized approach to
             education, ensuring their growth and success.
           </p>
-          <div className="flex items-start gap-4">
+          <div className="flex items-center gap-4">
             <div className="bg-blue-500 text-white p-2 rounded-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +74,7 @@ const page = () => {
               critical thinking.
             </p>
           </div>
-          <div className="flex items-start gap-4">
+          <div className="flex items-center gap-4">
             <div className="bg-blue-500 text-white p-2 rounded-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +96,7 @@ const page = () => {
               essential skills effectively.
             </p>
           </div>
-          <div className="flex items-start gap-4">
+          <div className="flex items-center gap-4">
             <div className="bg-blue-500 text-white p-2 rounded-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -96,8 +120,8 @@ const page = () => {
           </div>
         </div>
       </div>
-      <div className="pb-20">
-        <StickyReveal />
+      <div className="py-20">
+        <StickyReveal canScroll={canScroll} />
       </div>
       <div className="pb-40">
         <Testimonials />
@@ -106,4 +130,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

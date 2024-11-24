@@ -47,7 +47,7 @@ export const headerLine1Variants = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: i * 0.05,
+      delay: 0,
       duration: 0.6,
       ease: "circInOut",
     },
@@ -60,7 +60,7 @@ export const headerLine2Variants = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: 1 + i * 0.05,
+      delay: 0.36,
       duration: 0.6,
       ease: "circInOut",
     },
@@ -73,7 +73,7 @@ export const footerTypewriterVariants = {
 };
 
 export const navbarVariants = {
-  initial: { y: 100, opacity: 0 },
+  initial: { y: -100, opacity: 0 },
   animate: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } },
 };
 

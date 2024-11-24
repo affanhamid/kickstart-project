@@ -4,17 +4,12 @@ import {
   StarsBackground,
   ShootingStars,
   AuroraBackground,
-  Navbar,
-  Logo,
+  RotatingText,
 } from "@/components";
 import { motion } from "framer-motion";
-import Typewriter from "typewriter-effect";
 import {
-  footerTypewriterVariants,
   headerLine1Variants,
   headerLine2Variants,
-  logoVariants,
-  navbarVariants,
   schoolsVariants,
   backgroundVariants,
 } from "@/utils/animations";
@@ -54,17 +49,11 @@ export default function Home() {
         <ShootingStars />
         <StarsBackground />
 
-        <motion.div
-          className="absolute top-7 left-8 text-xl font-bold text-white"
-          variants={logoVariants}
-          initial="initial"
-          animate="animate"
-        >
-          <Logo />
-        </motion.div>
-
         <section className="flex flex-col text-white items-center pt-10">
           <header className="text-center">
+            <p className="text-lg border w-max mx-auto px-3 py-1 rounded-full mb-5 border-white/40">
+              Trusted by 200+ parents
+            </p>
             <h1 className="text-7xl font-bold tracking-[0.5px] flex flex-col">
               <span className="flex justify-center overflow-hidden">
                 {"Educating the Next".split("").map((letter, index) => (
@@ -99,39 +88,16 @@ export default function Home() {
             </h1>
           </header>
 
+          <RotatingText />
           <motion.div
             className="text-center w-[70%] text-xl"
             variants={schoolsVariants}
             initial="initial"
             animate="animate"
           >
-            <p className="text-lg pt-6 mb-2">Trusted by 200+ parents from:</p>
             <Marquee items={schools} />
           </motion.div>
         </section>
-
-        <motion.footer
-          className="text-xl text-gray-200 font-light pt-6 italic flex gap-1 justify-start w-[550px]"
-          variants={footerTypewriterVariants}
-          initial="initial"
-          animate="animate"
-        >
-          <span>Empowering our students with </span>
-          <Typewriter
-            options={{
-              strings: [
-                "10 and 11+ Exam Preparation",
-                "Interview Preparation",
-                "Math Study Groups",
-                "English Study Groups",
-              ],
-              autoStart: true,
-              loop: true,
-              delay: 75, // Speed of typing
-              deleteSpeed: 50, // Speed of deleting text
-            }}
-          />
-        </motion.footer>
       </AuroraBackground>
     </motion.div>
   );

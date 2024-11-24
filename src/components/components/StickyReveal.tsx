@@ -50,6 +50,6 @@ const content = [
     content: <></>,
   },
 ];
-export function StickyReveal() {
-  return <StickyScroll content={content} />;
+export function StickyReveal({ canScroll }: { canScroll: boolean }) {
+  return <StickyScroll content={content} canScroll={canScroll} />;
 }

@@ -71,7 +71,7 @@ export default function Home() {
               </span>
 
               {/* Second Line */}
-              <span className="flex justify-center overflow-hidden">
+              <span className="flex pt-5 justify-center overflow-hidden">
                 {"Generation of Stars".split("").map((letter, index) => (
                   <motion.span
                     key={`line2-${index}`}

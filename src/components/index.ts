@@ -10,5 +10,4 @@ export * from "./components/ContactUs";
 export * from "./ui/hero-highlight";
 export * from "./ui/background-boxes";
 export * from "./components/Testimonials";
-export * from "./components/StickyReveal";
 export * from "./components/RotatingText";

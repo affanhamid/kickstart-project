@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Webcam from "react-webcam";
 
 export const VideoInterview = ({
@@ -21,6 +21,16 @@ export const VideoInterview = ({
 
   const MAX_ATTEMPTS = 3; // Maximum number of attempts allowed
 
+  // Force the live video feed to be muted
+  useEffect(() => {
+    if (webcamRef.current) {
+      const videoElement = webcamRef.current.video;
+      if (videoElement) {
+        videoElement.muted = true; // Mute the live preview
+      }
+    }
+  }, [webcamRef.current]);
+
   const startCountdown = () => {
     let count = 3; // Countdown duration in seconds
     setCountdown(count);
@@ -37,7 +47,9 @@ export const VideoInterview = ({
 
   const startRecording = () => {
     if (webcamRef.current && webcamRef.current.stream) {
-      mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
+      const stream = webcamRef.current.stream;
+
+      mediaRecorderRef.current = new MediaRecorder(stream, {
         mimeType: "video/webm",
       });
       mediaRecorderRef.current.ondataavailable = (event) => {
@@ -107,13 +119,17 @@ export const VideoInterview = ({
           <li>What makes you stand out as a tutor?</li>
         </ul>
       </div>
-      <p className=" text-white font-bold ">
-        You have 7 minutes to answer the questions with 3 tries each
+      <p className="text-white font-bold">
+        You have 7 minutes to answer the questions with 3 tries each.
       </p>
       <div className="border rounded-md p-4 flex flex-col items-center">
         <Webcam
           ref={webcamRef}
+          audio
           className="w-full rounded-lg transform -scale-x-100"
+          videoConstraints={{
+            facingMode: "user",
+          }}
         />
         <div className="mt-4 flex space-x-4">
           {!isRecording && !videoBlob && !countdown && (

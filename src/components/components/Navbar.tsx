@@ -36,19 +36,19 @@ export const Navbar = () => {
   return (
     <>
       <motion.nav
-        className="fixed z-30 top-0 p-4 w-full flex justify-between sm:justify-center items-center backdrop-blur-lg"
+        className="fixed z-30 top-0 p-6 px-10  w-full flex justify-between md:justify-center items-center "
         variants={navbarVariants}
         initial="initial"
         animate="animate"
       >
         {/* Additional Logo Outside Hamburger Menu */}
-        <div className="flex items-center text-xl text-white sm:hidden">
+        <div className="flex items-center text-xl text-white md:hidden">
           <Logo />
         </div>
 
         {/* Mobile Hamburger Menu Button */}
         <button
-          className="text-white sm:hidden"
+          className="text-white md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? (
@@ -59,7 +59,7 @@ export const Navbar = () => {
         </button>
 
         {/* Desktop Navigation */}
-        <ul className="hidden sm:flex gap-8 backdrop-blur-lg p-3 rounded-lg shadow-lg text-white items-center w-3/4">
+        <ul className="hidden md:flex gap-8 backdrop-blur-lg p-3 px-10 rounded-lg shadow-lg text-white items-center w-full xl:w-3/4">
           <li className="flex-1 text-xl">
             <Logo />
           </li>
@@ -67,7 +67,7 @@ export const Navbar = () => {
             <li key={index} className="flex flex-col items-center">
               <a
                 href={link.href}
-                className="flex flex-col items-center text-neutral-300 hover:text-white transition duration-200"
+                className="flex flex-col items-center text-neutral-300 hover:text-white hover:scale-105 transition duration-200"
               >
                 <span className="p-2 bg-transparent rounded-full transition duration-200">
                   {link.icon}
@@ -78,7 +78,7 @@ export const Navbar = () => {
           ))}
           <li>
             <a
-              className="bg-white text-black px-3 py-2 rounded-lg"
+              className="bg-transparent border-2 border-white text-white hover:bg-gray-200 hover:text-black hover:scale-105 transitin duration-200 px-3 py-3 rounded-lg"
               href="https://wa.me/+447413837007?text=I'm%20interested%20in%learning%more%about%kickstart"
             >
               Register Now
@@ -89,7 +89,7 @@ export const Navbar = () => {
 
       {/* Mobile Navigation */}
       <div
-        className={`fixed top-0 right-0 h-full w-3/4 bg-black z-40 transition-transform ${
+        className={`fixed top-0 right-0 h-full w-full bg-black z-40 transition-transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

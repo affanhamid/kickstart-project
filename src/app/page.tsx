@@ -54,7 +54,7 @@ export default function Home() {
             <p className="text-sm sm:text-lg border w-max mx-auto px-3 py-1 rounded-full mb-5 border-white/40">
               Trusted by 200+ parents
             </p>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-[0.5px] flex flex-col">
+            <h1 className="text-3xl sm:text-6xl md:text-7xl font-bold tracking-[0.5px] flex flex-col">
               <span className="flex justify-center overflow-hidden">
                 {"Educating the Next".split("").map((letter, index) => (
                   <motion.span

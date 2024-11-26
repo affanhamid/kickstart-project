@@ -49,12 +49,12 @@ export default function Home() {
         <ShootingStars />
         <StarsBackground />
 
-        <section className="flex flex-col text-white items-center pt-10">
+        <section className="flex flex-col text-white items-center pt-10 px-5 sm:px-10">
           <header className="text-center">
-            <p className="text-lg border w-max mx-auto px-3 py-1 rounded-full mb-5 border-white/40">
+            <p className="text-sm sm:text-lg border w-max mx-auto px-3 py-1 rounded-full mb-5 border-white/40">
               Trusted by 200+ parents
             </p>
-            <h1 className="text-7xl font-bold tracking-[0.5px] flex flex-col">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-[0.5px] flex flex-col">
               <span className="flex justify-center overflow-hidden">
                 {"Educating the Next".split("").map((letter, index) => (
                   <motion.span
@@ -70,7 +70,6 @@ export default function Home() {
                 ))}
               </span>
 
-              {/* Second Line */}
               <span className="flex pt-5 justify-center overflow-hidden">
                 {"Generation of Stars".split("").map((letter, index) => (
                   <motion.span
@@ -90,7 +89,7 @@ export default function Home() {
 
           <RotatingText />
           <motion.div
-            className="text-center w-[70%] text-xl"
+            className="text-center w-[90%] sm:w-[80%] md:w-[70%] text-sm sm:text-base md:text-xl"
             variants={schoolsVariants}
             initial="initial"
             animate="animate"

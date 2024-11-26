@@ -17,9 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${GeistSans.className} antialiased w-screen h-screen overflow-hidden cursor-none`}
+        className={`${GeistSans.className} antialiased w-screen h-screen overflow-hidden`}
       >
-        <CustomCursor />
         <main className="bg-[#18181b] w-screen h-screen">{children}</main>
         <Navbar />
         <ContactUs />

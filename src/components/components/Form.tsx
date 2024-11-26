@@ -55,7 +55,7 @@ export const Form = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        to: "affanhamid007@gmail.com",
+        to: process.env.EMAIL,
         subject: "Tutor Application Submission",
         text: `Here is the complete application data: ${generateReport(data)}`,
       }),

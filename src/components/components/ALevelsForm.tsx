@@ -40,7 +40,8 @@ export const ALevelsForm = ({ formik }: { formik: any }) => {
           <div className="flex flex-col space-y-2 w-full">
             <FormField
               id={`aLevels.${index}.grade`}
-              placeholder="Grade (e.g., A)"
+              as="select"
+              options={["E", "D", "C", "B", "A", "A*"]}
               formik={formik}
             />
           </div>

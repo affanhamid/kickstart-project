@@ -311,13 +311,14 @@ const SupportOverview = () => (
 const page = () => {
   return (
     <section className="text-white w-full flex justify-center h-screen overflow-y-scroll">
-      <div className="z-20 pt-32">
-        <AboutHighlight />
-        <Statistics />
-        <ServicesOverview />
-        <ParentFeedback />
-        <SuccessOverview />
-        <SupportOverview />
+      <div className="z-20 pt-80">
+        {/* <AboutHighlight /> */}
+        {/* <Statistics /> */}
+        {/* <ServicesOverview /> */}
+        {/* <ParentFeedback /> */}
+        {/* <SuccessOverview /> */}
+        {/* <SupportOverview /> */}
+        <h1 className="text-5xl">Coming Soon</h1>
       </div>
 
       <Boxes />

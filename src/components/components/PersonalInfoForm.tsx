@@ -13,15 +13,14 @@ export const PersonalInfoForm = ({ formik }: { formik: any }) => {
         type="email"
         formik={formik}
       />
-      <FormField id="yearGroup" placeholder="Year 10" formik={formik} />
+      <FormField id="phone" placeholder="+441234567890" formik={formik} />
       <FormField
-        id="dob"
-        placeholder="Date of Birth"
-        type="date"
+        id="yearGroup"
+        as="select"
+        options={["Year 7", "Year 8", "Year 9", "Year 10", "Year 11"]}
         formik={formik}
       />
       <FormField id="institution" placeholder="XYZ School" formik={formik} />
-      <FormField id="phone" placeholder="+441234567890" formik={formik} />
     </form>
   );
 };

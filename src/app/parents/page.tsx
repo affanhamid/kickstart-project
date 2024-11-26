@@ -326,14 +326,15 @@ const page = () => {
   return (
     <HeroHighlight>
       <section className="h-screen overflow-y-scroll">
-        <Hero />
-        <Stats />
-        <Steps />
-        <Features />
-        <Stats />
-        <Faq />
-        <Stats />
-        <Testimonials />
+        {/* <Hero /> */}
+        {/* <Stats /> */}
+        {/* <Steps /> */}
+        {/* <Features /> */}
+        {/* <Stats /> */}
+        {/* <Faq /> */}
+        {/* <Stats /> */}
+        {/* <Testimonials /> */}
+        <h1 className="text-white pt-80 text-5xl">Coming Soon</h1>
       </section>
     </HeroHighlight>
   );
